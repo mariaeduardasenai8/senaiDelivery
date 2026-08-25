@@ -1,0 +1,90 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Categoria;
+use App\Models\Produto;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class ProdutoSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $produtos = [
+            'Lanches' => [
+                [
+                    'nome' => 'X-Burguer',
+                    'descricao' => 'Pão, hamburguer, queijo e molho especial',
+                    'preco' => 18.90,
+                    'destaque' => true
+                ],
+                [
+                    'nome' => 'X-Bacon',
+                    'descricao' => 'Pão, hamburguer, queijo, bacon e salada',
+                    'preco' => 18.90,
+                    'destaque' => true
+                ],
+            ],
+            'Porção' => [
+                [
+                    'nome' => 'Batata Frita',
+                    'descricao' => 'Porçao de batata frita',
+                    'preco' => 22.90,
+                    'destaque' => false
+                ],
+                'nome' => 'Calabresa Acebolada',
+                'descricao' => 'Calabresa fatiada com cebola',
+                'preco' => 29.90,
+                'destaque' => true
+            ],
+            'Bebidas' => [
+                [
+                    'nome' => 'Refrigerente',
+                    'descricao' => 'Refrigerante Lata',
+                    'preco' => 6.00,
+                    'destaque' => false
+                ],
+                'nome' => 'Suco de laranja',
+                'descricao' => 'Suco natural de laranja',
+                'preco' => 10.00,
+                'destaque' => true
+            ],
+
+            'Sobremesas' => [
+                [
+                    'nome' => 'Pudim',
+                    'descricao' => 'Fatia de pudim',
+                    'preco' => 9.90,
+                    'destaque' => false
+                ],
+                'nome' => 'Sorvete',
+                'descricao' => 'Sorvete com coberta',
+                'preco' => 10.00,
+                'destaque' => true
+            ],
+
+        ];
+
+        foreach ($produtos as $nomeCategoria => $itens) {
+            $categoria = Categoria::where('nome', $nomeCategoria)->firstOrfail();
+
+            foreach ($itens as $produto) {
+                Produto::create(
+                    [
+                        'categoria_id'=>$categoria->id,
+                        'nome'=>$produto['nome'],
+                        'descricao'=> $produto['descricao'],
+                        'preco'=> $produto['preco'],
+                        'caminho_imagem'=> null,
+                        'ativo'=>true,
+                        'destaque'=> $produto['destaque']
+                    ]
+                    );
+            }
+        }
+    }
+}
