@@ -13,26 +13,29 @@ class CategoriaSedeer extends Seeder
      */
     public function run(): void
     {
-        Categoria::create([
+         Categoria::create([
             'nome' => 'Lanches',
             'descricao' => 'Lanches Diversos',
             'ativo' => true,
             'ordem_exibicao' => 1
         ]);
-           Categoria::create([
+
+        Categoria::create([
             'nome' => 'Porções',
             'descricao' => 'Porções Diversas',
             'ativo' => true,
             'ordem_exibicao' => 2
         ]);
-           Categoria::create([
+
+        Categoria::create([
             'nome' => 'Bebidas',
             'descricao' => 'Bebidas Diversas',
             'ativo' => true,
             'ordem_exibicao' => 3
         ]);
+
         Categoria::create([
-            'nome' => 'Sobremeses',
+            'nome' => 'Sobremesas',
             'descricao' => 'Sobremesas Diversas',
             'ativo' => true,
             'ordem_exibicao' => 4

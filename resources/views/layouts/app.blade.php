@@ -44,7 +44,7 @@
             Sair</button>
             </form>
         </div>
-
+    </div>
     <div class="col-12 col-md-9 col-lg-10 p-0">
         <nav class="navbar bg-white border-bottom px-3 px-md-4">
             <div class="container-fluid p-0">
